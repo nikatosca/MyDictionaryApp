@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:MyDictionaryApp.ViewModels"
+             x:Class="MyDictionaryApp.Views.WelcomeView"
+             x:DataType="vm:WelcomeViewModel">
+    <UserControl.DataContext>
+        <vm:WelcomeViewModel />
+    </UserControl.DataContext>
+    
+    <Grid>
+        <TextBlock Text="{Binding WelcomeMessage}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   FontSize="24" 
+                   FontWeight="Bold" />
+    </Grid>
+</UserControl>

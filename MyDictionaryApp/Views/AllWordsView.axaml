@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:myDictionaryApp="clr-namespace:MyDictionaryApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MyDictionaryApp.Views.AllWordsView"
+             x:DataType="myDictionaryApp:AllWordsViewModel"
+             Background="Transparent">
+    
+    <Grid Background="Transparent" RowDefinitions="Auto,Auto,*">
+        <!-- Кнопка обновления -->
+        <Button Grid.Row="0" Content="Обновить список" Command="{Binding RefreshWordsCommand}" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+
+        <!-- Заголовки -->
+        <Grid Grid.Row="1" Height="30" ColumnDefinitions="*,*,*,*" Margin="0,0,0,5">
+            <TextBlock Text="Id" Grid.Column="0" FontWeight="Bold" Margin="5" />
+            <TextBlock Text="Оригинал" Grid.Column="1" FontWeight="Bold" Margin="5" />
+            <TextBlock Text="Перевод" Grid.Column="2" FontWeight="Bold" Margin="5" />
+            <TextBlock Text="Уровень запоминания" Grid.Column="3" FontWeight="Bold" Margin="5" />
+        </Grid>
+
+        <!-- Список слов -->
+        <ListBox Grid.Row="2" ItemsSource="{Binding Words}" Background="Transparent" BorderThickness="0">
+            <ListBox.Styles>
+                <!-- Чередование цветов -->
+                <Style Selector="ListBoxItem:nth-child(even)">
+                    <Setter Property="Background" Value="White" />
+                </Style>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="Padding" Value="0" />
+                </Style>
+            </ListBox.Styles>
+
+            <!-- Шаблон для элементов списка -->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="30" ColumnDefinitions="*,*,*,*">
+                        <TextBlock Text="{Binding Id}" Grid.Column="0" Margin="5" />
+                        <TextBlock Text="{Binding Original}" Grid.Column="1" Margin="5" />
+                        <TextBlock Text="{Binding Meaning}" Grid.Column="2" Margin="5" />
+                        <TextBlock Text="{Binding Level}" Grid.Column="3" Margin="5" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

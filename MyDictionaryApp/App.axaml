@@ -1,0 +1,46 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MyDictionaryApp.App"
+             xmlns:views="clr-namespace:MyDictionaryApp.Views"
+             xmlns:viewmodels="clr-namespace:MyDictionaryApp.ViewModels"
+             xmlns:global="clr-namespace:"
+             RequestedThemeVariant="Light">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+             <Application.DataTemplates>
+                 <!-- Привязка AllWordsViewModel к AllWordsView -->
+                 <DataTemplate DataType="{x:Type viewmodels:WelcomeViewModel}">
+                     <views:WelcomeView />
+                 </DataTemplate>
+                 
+                 <DataTemplate DataType="{x:Type viewmodels:AllWordsViewModel}">
+                     <views:AllWordsView />
+                 </DataTemplate>
+                 
+                 <DataTemplate DataType="{x:Type viewmodels:AddWordViewModel}">
+                     <views:AddWordView />
+                 </DataTemplate>
+                 
+                 <DataTemplate DataType="{x:Type global:DeleteWordViewModel}">
+                     <views:DeleteWordView />
+                 </DataTemplate>
+                 
+                 <DataTemplate DataType="{x:Type viewmodels:TestViewModel}">
+                     <views:TestView />
+                 </DataTemplate>
+                 
+             </Application.DataTemplates>
+             
+    
+             <Application.Styles>
+                 <FluentTheme />
+             </Application.Styles>
+             
+             <Application.Styles>
+                 <!-- Глобальный стиль для заголовков -->
+                 <Style Selector="TextBlock[FontWeight=Bold]">
+                     <Setter Property="FontSize" Value="18" />
+                     <Setter Property="FontWeight" Value="Bold" />
+                 </Style>
+             </Application.Styles>
+</Application>

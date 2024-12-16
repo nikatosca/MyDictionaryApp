@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:MyDictionaryApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MyDictionaryApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MyDictionaryApp"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True">
+    
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="LightCyan"
+                    TintOpacity="1"
+                    MaterialOpacity="0.5" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+    <Grid>
+        <DockPanel>
+            <!-- Главное меню -->
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Показать все слова" Command="{Binding ShowAllWordsCommand}" />
+                <Button Content="Добавить слово" Command="{Binding AddWordCommand}" />
+                <Button Content="Удалить слово" Command="{Binding DeleteWordCommand}" />
+                <Button Content="Начать тестирование" Command="{Binding StartTestingCommand}" />
+            </StackPanel>
+            <!-- Область для отображения содержимого -->
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </DockPanel>
+    </Grid>
+        </Panel>
+  
+</Window>

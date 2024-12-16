@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:MyDictionaryApp.ViewModels"
+             x:Class="MyDictionaryApp.Views.TestView"
+             x:DataType="vm:TestViewModel">
+    <StackPanel Margin="20" Spacing="10">
+        <TextBlock Text="Переведите слово:" FontWeight="Bold" Margin="0,20,0,10" />
+        <TextBlock Text="{Binding CurrentWord.Original}" FontSize="20" Margin="0,20,0,20" />
+        <TextBox Text="{Binding UserAnswer}" Watermark="Введите перевод..." Margin="0,0,0,20" />
+        <Button Content="Проверить" Command="{Binding CheckAnswerCommand}" Margin="0,30,0,20" />
+        <TextBlock Text="{Binding ResultMessage}" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,10" 
+                   Foreground="{Binding ResultMessageColor}" />  <!-- Привязка цвета текста -->
+        <Button Content="Завершить тестирование" Command="{Binding FinishTestCommand}" Margin="0,100,0,0" />
+    </StackPanel>
+</UserControl>
